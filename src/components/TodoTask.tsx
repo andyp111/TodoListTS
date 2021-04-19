@@ -7,14 +7,14 @@ interface Props {
     completeTask(taskNameToDelete: string): void;
 }
 
-export const TodoTask = ({ task }: Props) => {
+export const TodoTask = ({ task, completeTask }: Props) => {
     return (
         <div className="task">
             <div className="content">
                 <span>{task.taskName}</span>
                 <span>{task.deadline}</span>
             </div>
-            <button></button>
+            <button onClick={() => completeTask(task.taskName)}>X</button>
         </div>
     )
 }
