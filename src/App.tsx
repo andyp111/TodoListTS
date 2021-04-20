@@ -34,7 +34,9 @@ const App: FC = () => {
 
   return (
     <div className="App">
-      <h1>TodoList</h1>
+      <div className="title">
+        <h1>Things to do!</h1>
+      </div>
       <div className="header">
         <div className="inputContainer">
           <input
