@@ -62,6 +62,9 @@ const App: FC = () => {
           return <TodoTask key={key} task={task} completeTask={completeTask} />
         })}
       </div>
+      <div className="groceryList-container">
+        <GroceryList />
+      </div>
     </div>
   );
 }
