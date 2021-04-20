@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FC } from 'react';
 import { IGroceries } from '../Interfaces/Interfaces'
-
+import {GroceryItem} from './GroceryItem';
 
 
 export const GroceryList: FC = () => {
@@ -34,7 +34,11 @@ export const GroceryList: FC = () => {
 
     return (
         <div>
-
+            {groceryList.map((item: IGroceries, key: number) => {
+                return (
+                    <GroceryItem item={item} key={key}/>
+                )
+            })}
         </div>
     )
 }

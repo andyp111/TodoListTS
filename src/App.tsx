@@ -2,6 +2,7 @@ import React, { FC, useState, ChangeEvent } from 'react';
 import { ITask } from './Interfaces/Interfaces'
 import './App.css';
 import { TodoTask } from './components/TodoTask'
+import { GroceryList } from './components/Grocerylist'
 
 const App: FC = () => {
 
