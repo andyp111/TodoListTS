@@ -1,36 +1,33 @@
-import React, { useState, ChangeEvent, FC } from 'react';
-import { IGroceries } from '../Interfaces/Interfaces'
-import { GroceryItem } from './GroceryItem';
-
+import React, { useState, ChangeEvent, FC } from "react";
+import { IGroceries } from "../Interfaces/Interfaces";
+import { GroceryItem } from "./GroceryItem";
 
 export const GroceryList: FC = () => {
-
-    const [itemName, setItemName] = useState<string>('');
+    const [itemName, setItemName] = useState<string>("");
     const [quantity, setQuantity] = useState<number>(0);
     const [price, setPrice] = useState<number>(0);
 
-    const [groceryList, setGroceryList] = useState<IGroceries[]>([])
-
+    const [groceryList, setGroceryList] = useState<IGroceries[]>([]);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        if (event.target.name === 'itemName') setItemName(event.target.value);
-        if (event.target.name === 'quantity') setQuantity(Number(event.target.value));
-        if (event.target.name === 'price') setPrice(Number(event.target.value));
-    }
+        if (event.target.name === "itemName") setItemName(event.target.value);
+        if (event.target.name === "quantity")
+            setQuantity(Number(event.target.value));
+        if (event.target.name === "price") setPrice(Number(event.target.value));
+    };
 
     const addGroceries = (): void => {
         const newGrocery = {
             itemName: itemName,
             quantity: quantity,
-            price: price
-        }
+            price: price,
+        };
 
         setGroceryList([...groceryList, newGrocery]);
-        setItemName('');
+        setItemName("");
         setQuantity(0);
         setPrice(0);
-    }
-
+    };
 
     return (
         <div className="groceryListMain">
@@ -57,14 +54,12 @@ export const GroceryList: FC = () => {
                     onChange={handleChange}
                 />
             </div>
-            <button></button>
+            <button onClick={addGroceries}>Add Item</button>
             <div className="groceryList">
                 {groceryList.map((item: IGroceries, key: number) => {
-                    return (
-                        <GroceryItem item={item} key={key} />
-                    )
+                    return <GroceryItem item={item} key={key} />;
                 })}
             </div>
         </div>
-    )
-}
+    );
+};

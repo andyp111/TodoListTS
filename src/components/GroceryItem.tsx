@@ -10,7 +10,7 @@ interface Props {
 export const GroceryItem = ({item}: Props) => {
     return (
         <div>
-            
+            {item.itemName} - {item.quantity} - {item.price}
         </div>
     )
 }
