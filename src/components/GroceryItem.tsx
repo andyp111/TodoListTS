@@ -7,10 +7,17 @@ interface Props {
 
 }
 
+
+
 export const GroceryItem = ({item}: Props) => {
+    const quant: Number = item.quantity;
+    const price: Number = item.price;
+    const totalPrice: Number = Number(quant) * Number(price);
     return (
         <div>
-            {item.itemName} - {item.quantity} - {item.price}
+            <span>{item.itemName}</span>
+            <span>{item.quantity}</span>
+            <span>{totalPrice}</span>
         </div>
     )
 }
